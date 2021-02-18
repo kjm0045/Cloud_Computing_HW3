@@ -1,0 +1,372 @@
+{
+  "intents": [
+    {
+      "intent": "courseName",
+      "examples": [
+        {
+          "text": "class name"
+        },
+        {
+          "text": "course name"
+        },
+        {
+          "text": "what class"
+        },
+        {
+          "text": "what course"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "freeRAM",
+      "examples": [
+        {
+          "text": "available ram"
+        },
+        {
+          "text": "free ram"
+        },
+        {
+          "text": "how much free"
+        },
+        {
+          "text": "how much free ram"
+        },
+        {
+          "text": "how much free ram does my server have"
+        },
+        {
+          "text": "how much ram is available"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "groupNumber",
+      "examples": [
+        {
+          "text": "group number"
+        },
+        {
+          "text": "team number"
+        },
+        {
+          "text": "what group"
+        },
+        {
+          "text": "what team"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "maxRam",
+      "examples": [
+        {
+          "text": "how much ram"
+        },
+        {
+          "text": "how much ram does my server have"
+        },
+        {
+          "text": "max ram"
+        },
+        {
+          "text": "total ram"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "networkTraffic",
+      "examples": [
+        {
+          "text": "network activity"
+        },
+        {
+          "text": "network traffic"
+        },
+        {
+          "text": "traffic"
+        },
+        {
+          "text": "what kind of network traffic is my server getting right now"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "teamMembers",
+      "examples": [
+        {
+          "text": "group mates"
+        },
+        {
+          "text": "group members"
+        },
+        {
+          "text": "team mates"
+        },
+        {
+          "text": "team members"
+        },
+        {
+          "text": "who is"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "uptime",
+      "examples": [
+        {
+          "text": "how long"
+        },
+        {
+          "text": "how long has my server been powered on"
+        },
+        {
+          "text": "powered on"
+        },
+        {
+          "text": "up time"
+        },
+        {
+          "text": "uptime"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "webhooks": [
+    {
+      "url": "",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "digress_in": "does_not_return",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1612201032523",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "uptime",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This server has been up for 549.05 minutes."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "conditions": "#uptime",
+      "dialog_node": "node_10_1613427224439",
+      "previous_sibling": "node_6_1613427109113"
+    },
+    {
+      "type": "standard",
+      "title": "Course Name Question",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your class is COMP 5530, Cloud Computing: Principles, Practice, and Applications."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#courseName",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1612201032523",
+      "previous_sibling": "node_5_1612200927737"
+    },
+    {
+      "type": "standard",
+      "title": "maxRAMIntent",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This server has 800.47 MiB memory total."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "conditions": "#maxRam",
+      "dialog_node": "node_4_1613423334257"
+    },
+    {
+      "type": "standard",
+      "title": "Team Members Question",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your team members are Yizhou Zhou, Ren McFaden, William Melton, Kevin Martin, and Quinterious Hall."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#teamMembers",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1612200927737",
+      "previous_sibling": "node_6_1612200989386"
+    },
+    {
+      "type": "standard",
+      "title": "Team Number Question",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your Team is number 13."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#groupNumber",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_6_1612200989386",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "networkTraffic",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This server has 2316013 Bytes rx, 6801500 Bytes tx."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "conditions": "#networkTraffic",
+      "dialog_node": "node_6_1613427109113",
+      "previous_sibling": "node_8_1613427091177"
+    },
+    {
+      "type": "standard",
+      "title": "availableRAM",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This server has 144.49 MiB memory available."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "conditions": "#freeRAM",
+      "dialog_node": "node_8_1613427091177",
+      "previous_sibling": "node_4_1613423334257"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, would you like to know who your team members are, what your team number is, or what course your are in?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome || anything_else",
+      "dialog_node": "Welcome",
+      "previous_sibling": "node_10_1613427224439"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "groupInfo",
+  "language": "en",
+  "description": ""
+}
