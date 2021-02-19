@@ -190,7 +190,7 @@
           {
             "values": [
               {
-                "text": "This server has been up for 549.05 minutes."
+                "text": "This server has been up for 2370.13 minutes."
               }
             ],
             "response_type": "text"
@@ -230,7 +230,7 @@
           {
             "values": [
               {
-                "text": "This server has 800.47 MiB memory total."
+                "text": "This server has 3654.18 MiB memory total."
               }
             ],
             "response_type": "text"
@@ -290,7 +290,7 @@
           {
             "values": [
               {
-                "text": "This server has 2316013 Bytes rx, 6801500 Bytes tx."
+                "text": "This server has 70930617 Bytes rx, 71195306 Bytes tx."
               }
             ],
             "response_type": "text"
@@ -309,7 +309,7 @@
           {
             "values": [
               {
-                "text": "This server has 144.49 MiB memory available."
+                "text": "This server has 286.70 MiB memory available."
               }
             ],
             "response_type": "text"
@@ -328,7 +328,7 @@
           {
             "values": [
               {
-                "text": "Hello, would you like to know who your team members are, what your team number is, or what course your are in?"
+                "text": "Hello, would you like to know who your team members are, what your team number is, what course your are in, your server's uptime, maximum ram, available ram, or network statistics?"
               }
             ],
             "response_type": "text",
